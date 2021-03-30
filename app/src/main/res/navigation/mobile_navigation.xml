@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.rebuilt3.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_LinkedlistFrag"
+            app:destination="@id/LinkedlistFrag" />
+        <action
+            android:id="@+id/action_nav_home_to_BinaryFrag"
+            app:destination="@id/BinaryFrag" />
+        <action
+            android:id="@+id/action_nav_home_to_Heap"
+            app:destination="@id/Heap" />
+        <action
+            android:id="@+id/action_nav_home_to_Stack"
+            app:destination="@id/Stack" />
+        <action
+            android:id="@+id/action_nav_home_to_Queue"
+            app:destination="@id/Queue" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.rebuilt3.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+
+    <fragment
+        android:id="@+id/LinkedlistFrag"
+        android:name="com.example.rebuilt3.Fragement.Linked_List"
+        android:label="Linked List"
+        tools:layout="@layout/fragment_linked__list" />
+    <fragment
+        android:id="@+id/BinaryFrag"
+        android:name="com.example.rebuilt3.Fragement.Binary_Trees"
+        android:label="Binary Trees"
+        tools:layout="@layout/fragment_binary__trees" />
+    <fragment
+        android:id="@+id/Heap"
+        android:name="com.example.rebuilt3.Fragement.Heap"
+        android:label="Heap"
+        tools:layout="@layout/fragment_heap" />
+    <fragment
+        android:id="@+id/Stack"
+        android:name="com.example.rebuilt3.Fragement.Stack"
+        android:label="Stack"
+        tools:layout="@layout/fragment_stack" />
+    <fragment
+        android:id="@+id/Queue"
+        android:name="com.example.rebuilt3.Fragement.Queue"
+        android:label="Queue"
+        tools:layout="@layout/fragment_queue" />
+</navigation>
