@@ -32,14 +32,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:text="DATA STRUCTURES"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:layout_gravity="center"
                 android:textStyle = "bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:textColor="#000000"
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="A data structure is a particular way of organizing data in a computer so that it can be used effectively.  "/>
@@ -48,6 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:textColor="#000000"
                 android:layout_marginBottom="10dp"
                 android:text="More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data."/>
 
@@ -56,7 +60,9 @@
                 android:layout_height="wrap_content"
                 android:paddingRight="20dp"
                 android:paddingLeft="10dp"
-
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:layout_gravity="center"
                 android:text="Abstract Data Types"
                 android:textStyle = "bold"/>
 
@@ -65,6 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
+                android:textColor="#000000"
                 android:layout_marginBottom="10dp"
                 android:text="Abstract Data type (ADT) is a type (or class) for objects whose behaviour is defined by a set of value and a set of operations. "/>
 
