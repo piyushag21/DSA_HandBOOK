@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:maxLength="50"
                 android:maxLines="1"
-                android:id="@+id/password"
+                android:id="@+id/password_login"
                 android:singleLine="true" />
 
             <View
@@ -76,7 +76,11 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="LoginUser"
                 android:text="LOGIN"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:backgroundTint="#FBC02D"/>
 
             <View
@@ -99,12 +103,12 @@
                     android:text="New User ?"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textColor="#0336FF"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
                     android:background="#FBC02D"
-
+                    android:onClick="gotoRegister"
                     android:layout_marginTop="10dp"
                     android:textStyle="bold"
                     android:textSize="24sp"
@@ -120,7 +124,7 @@
             android:indeterminate="true"
             android:indeterminateTint="@color/black"
             android:visibility="gone"
-            android:id="@+id/progressbarlogin"
+            android:id="@+id/progressbarLogin"/>
 
     </RelativeLayout>
 
