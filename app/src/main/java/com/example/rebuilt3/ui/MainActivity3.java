@@ -82,6 +82,11 @@ public class MainActivity3 extends AppCompatActivity
                         }
                     });
         }
+        else
+        {
+            Toast.makeText(getApplicationContext(), "Hey Field Is Empty Try Again!!", Toast.LENGTH_LONG).show();
+            progressBar.setVisibility(View.GONE);
+        }
     }
     public void gotoRegister(View v)
     {
