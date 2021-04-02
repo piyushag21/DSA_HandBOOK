@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "416087368578",
+    "project_id": "ds-handbook-d1b6c",
+    "storage_bucket": "ds-handbook-d1b6c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416087368578:android:d739566571475377bea59b",
+        "android_client_info": {
+          "package_name": "com.example.rebuilt3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416087368578-eea16qpeb9l7hkaa47sugvr3fb4cfdth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg7UzDSOP-hiaOX44ZMO_nyrF1DWLm3Cs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416087368578-eea16qpeb9l7hkaa47sugvr3fb4cfdth.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

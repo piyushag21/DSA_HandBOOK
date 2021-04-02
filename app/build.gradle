@@ -31,6 +31,10 @@ android {
 }
 
 dependencies {
+    implementation 'com.google.firebase:firebase-auth:20.0.3'
+    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+
+    implementation 'com.google.firebase:firebase-database:19.7.0'
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -46,3 +50,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 }
+
+apply plugin: 'com.google.gms.google-services'
