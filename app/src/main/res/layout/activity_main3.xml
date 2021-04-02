@@ -104,6 +104,7 @@
                     android:layout_gravity="center"
                     android:textColor="#0336FF"
                     android:background="#FBC02D"
+
                     android:layout_marginTop="10dp"
                     android:textStyle="bold"
                     android:textSize="24sp"
