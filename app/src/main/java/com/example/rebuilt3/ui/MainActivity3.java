@@ -48,7 +48,7 @@ public class MainActivity3 extends AppCompatActivity
             textEmail = (TextInputEditText)findViewById(R.id.email_login);
             textPassword = (TextInputEditText)findViewById(R.id.password_login);
             progressBar = (ProgressBar)findViewById(R.id.progressbarLogin);
-            reference = FirebaseDatabase.getInstance().getReference().child("Users");
+          //  reference = FirebaseDatabase.getInstance().getReference().child("Users");
         }
 
 
