@@ -1,139 +1,108 @@
 package com.example.rebuilt3.ui;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
+
 import android.os.Bundle;
-import android.text.InputType;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.rebuilt3.R;
+import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class MainActivity3 extends AppCompatActivity
-{
-    TextInputEditText textEmail,textPassword;
-    ProgressBar progressBar;
-    FirebaseAuth auth;
-    DatabaseReference reference;
+public class MainActivity3 extends AppCompatActivity {
+    private DatabaseReference mDatabase;
+    private static final int SIGN_IN_REQUEST_CODE = 1;
+
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        auth = FirebaseAuth.getInstance();
-        if(auth.getCurrentUser() != null)
-        {
-            Intent i = new Intent(MainActivity3.this, GroupChatActivity.class);
-            startActivity(i);
-        }
-        else
-        {
-            setContentView(R.layout.activity_main3);
+        setContentView(R.layout.activity_main3);
 
-            textEmail = (TextInputEditText)findViewById(R.id.email_login);
-            textPassword = (TextInputEditText)findViewById(R.id.password_login);
-            progressBar = (ProgressBar)findViewById(R.id.progressbarLogin);
-          //  reference = FirebaseDatabase.getInstance().getReference().child("Users");
-        }
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        if(FirebaseAuth.getInstance().getCurrentUser() == null) {
+            // Start sign in/sign up activity
+            startActivityForResult(
+                    AuthUI.getInstance().createSignInIntentBuilder().build(),
+                    SIGN_IN_REQUEST_CODE
+            );
+        } else {
+            // User is already signed in. Therefore, display
+            // a welcome Toast
+            Toast.makeText(this,
+                    "Welcome " + FirebaseAuth.getInstance()
+                            .getCurrentUser()
+                            .getDisplayName(),
+                    Toast.LENGTH_LONG)
+                    .show();
+
+            Intent intent = new Intent(MainActivity3.this, Chat.class);
+            startActivity(intent);
+
+        }
 
     }
 
-    public void LoginUser(View v)
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        progressBar.setVisibility(View.VISIBLE);
-        String email = textEmail.getText().toString();
-        String password = textPassword.getText().toString();
-        if(!email.equals("")  && !password.equals(""))
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == SIGN_IN_REQUEST_CODE)
         {
-            auth.signInWithEmailAndPassword(email,password)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>()
-                    {
+            if(resultCode == RESULT_OK)
+            {
+                Toast.makeText(this,
+                        "Successfully signed in. Welcome!",
+                        Toast.LENGTH_LONG)
+                        .show();
+
+                Intent intent = new Intent(MainActivity3.this, Chat.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this,
+                        "We couldn't sign you in. Please try again later.",
+                        Toast.LENGTH_LONG)
+                        .show();
+                finish();
+            }
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.menu_sign_out) {
+            AuthUI.getInstance().signOut(this)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
-                        public void onComplete(@NonNull Task<AuthResult> task)
-                        {
-                            if(task.isSuccessful())
-                            {
-                                progressBar.setVisibility(View.GONE);
-                                Toast.makeText(getApplicationContext(), "Logged In", Toast.LENGTH_LONG).show();
-                                Intent i = new Intent(MainActivity3.this, GroupChatActivity.class);
-                                startActivity(i);
-                            }
-                            else
-                            {
-                                Toast.makeText(getApplicationContext(), "Wrong Email/Password. Try Again", Toast.LENGTH_LONG).show();
-                                progressBar.setVisibility(View.GONE);
-                            }
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(MainActivity3.this,
+                                    "You have been signed out.",
+                                    Toast.LENGTH_LONG)
+                                    .show();
+
+                            // Close activity
+                            finish();
                         }
                     });
         }
-        else
-        {
-            Toast.makeText(getApplicationContext(), "Hey Field Is Empty Try Again!!", Toast.LENGTH_LONG).show();
-            progressBar.setVisibility(View.GONE);
-        }
-    }
-    public void gotoRegister(View v)
-    {
-        Intent i = new Intent(MainActivity3.this, RegisterActivity.class);
-        startActivity(i);
+        return true;
     }
 
-    public void forgotPassword(View v)
-    {
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity3.this);
-        LinearLayout container = new LinearLayout(MainActivity3.this);
-
-        container.setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams ip = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        ip.setMargins(50,0,0,100);
-
-        final EditText input = new EditText(MainActivity3.this);
-
-        input.setLayoutParams(ip);
-        input.setGravity(Gravity.TOP|Gravity.START);
-        input.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
-        input.setLines(1);
-        input.setMaxLines(1);
-
-        container.addView(input,ip);
-
-        alert.setMessage("Enter Your Registered Email Address");
-        alert.setTitle("ForGot Password?");
-        alert.setView(container);
-
-        alert.setPositiveButton("SUBMIT", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String entered_email = input.getText().toString();
-
-                auth.sendPasswordResetEmail(entered_email)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if(task.isSuccessful())
-                                {
-                                    dialog.dismiss();
-                                    Toast.makeText(getApplicationContext(),"Email Sent Please Check Your Email", Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
-            }
-        });
-    }
 }

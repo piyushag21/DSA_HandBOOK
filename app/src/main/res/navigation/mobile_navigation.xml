@@ -25,6 +25,13 @@
         <action
             android:id="@+id/action_nav_home_to_Queue"
             app:destination="@id/Queue" />
+
+        <action
+            android:id="@+id/action_nav_home_to_Array"
+            app:destination="@id/Array" />
+        <action
+            android:id="@+id/action_nav_home_to_Structure2"
+            app:destination="@id/Structure" />
     </fragment>
 
     <fragment
@@ -59,4 +66,14 @@
         android:name="com.example.rebuilt3.Fragement.Queue"
         android:label="Queue"
         tools:layout="@layout/fragment_queue" />
+    <fragment
+        android:id="@+id/Array"
+        android:name="com.example.rebuilt3.Fragement.Array"
+        android:label="Array"
+        tools:layout="@layout/fragment_array" />
+    <fragment
+        android:id="@+id/Structure"
+        android:name="com.example.rebuilt3.Fragement.Structure"
+        android:label="Structure"
+        tools:layout="@layout/fragment_structure" />
 </navigation>

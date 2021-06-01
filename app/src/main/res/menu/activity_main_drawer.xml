@@ -53,6 +53,18 @@
                     android:menuCategory="secondary"
                     android:title="Heap"
                     />
+                <item
+                    android:id="@+id/Array"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:menuCategory="secondary"
+                    android:title="Array"
+                    />
+                <item
+                    android:id="@+id/Structure"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:menuCategory="secondary"
+                    android:title="Structure"
+                    />
             </group>
         </menu>
     </item>

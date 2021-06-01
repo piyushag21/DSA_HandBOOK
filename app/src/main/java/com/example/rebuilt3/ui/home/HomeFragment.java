@@ -72,6 +72,20 @@ public class HomeFragment extends Fragment {
                 Navigation.findNavController(v).navigate(R.id.action_nav_home_to_Heap);
             }
         });
+        Button button6 = root.findViewById(R.id.button4);
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_nav_home_to_Array);
+            }
+        });
+        Button button7 = root.findViewById(R.id.button4);
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_nav_home_to_Structure2);
+            }
+        });
         return root;
     }
 }

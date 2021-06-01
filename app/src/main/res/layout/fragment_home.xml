@@ -109,6 +109,33 @@
                 android:layout_marginLeft="10dp"
                 android:text="Heap" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="20dp"
+                android:paddingLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:layout_gravity="center"
+                android:text="Inbuilt Data Structure"
+                android:textStyle = "bold"/>
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Array" />
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Structure" />
+
 
         </LinearLayout>
 

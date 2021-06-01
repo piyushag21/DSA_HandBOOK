@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragement.Linked_List">
+    tools:context=".Fragement.Structure">
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
@@ -37,7 +37,9 @@
                 android:layout_marginBottom="15dp"
                 android:textColor="#000000"
                 android:layout_marginTop="10dp"
-                android:text="A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers as shown in the below image:" />
+                android:text="Structure is a collection of variables of different data types under a single name. It is similar to a class in that, both holds a collecion of data of different data types.
+
+\n\nFor example: You want to store some information about a person: his/her name, citizenship number and salary. You can easily create different variables name, citNo, salary to store these information separately.\nHowever, in the future, you would want to store information about multiple persons. Now, you'd need to create different variables for each information per person:\nname1, citNo1, salary1, name2, citNo2, salary2" />
 
             <ImageView
                 android:id="@+id/androidparty"
@@ -46,7 +48,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/android" />
+                android:src="@drawable/structure_in_cpp" />
 
 
             <TextView
@@ -64,11 +66,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:textColor="#000000"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="20dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
                 android:text="Arrays can be used to store linear data of similar types, but arrays have the following limitations. \n \n
 1) The size of the arrays is fixed: So we must know the upper limit on the number of elements in advance. Also, generally, the allocated memory is equal to the upper limit irrespective of the usage. \n \n
 2) Inserting a new element in an array of elements is expensive because the room has to be created for the new elements and to create room existing elements have to be shifted. \n \n
@@ -90,7 +91,8 @@ Each node in a list consists of at least two parts: \n
 1) data \n
 2) Pointer (Or Reference) to the next node \n \n
 In C, we can represent a node using structures. Below is an example of a linked list node with integer data.
-In Java or C#, LinkedList can be represented as a class and a Node as a separate class. The LinkedList class contains a reference of Node class type." />
+In Java or C#, LinkedList can be represented as a class and a Node as a separate class. The LinkedList class contains a reference of Node class type."
+                android:textColor="#000000" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -108,7 +110,7 @@ In Java or C#, LinkedList can be represented as a class and a Node as a separate
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
-                app:videoId="R9PTBwOzceo"
+                app:videoId="XBFGsKQX21s"
                 app:autoPlay="false"
                 app:showFullScreenButton="true" />
 
